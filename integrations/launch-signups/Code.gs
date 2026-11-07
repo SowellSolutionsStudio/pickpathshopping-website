@@ -1,8 +1,7 @@
 /**
  * PickPath Shopping prelaunch signup receiver, Google Apps Script.
  *
- * Install this as a script BOUND to the private spreadsheet:
- * https://docs.google.com/spreadsheets/d/1PyV5MnJsxkt8jNvUxIeW_isxGGCO1LIyBeDx9RIJ1rM/
+ * Install this as a script BOUND to your private PickPath signup spreadsheet.
  *
  * Run setupPickPathSignups once. Then deploy as Web app:
  *   Execute as: Me
@@ -60,8 +59,15 @@ function setupPickPathSignups() {
 
 /** Optional browser health check, with no subscriber details. */
 function doGet() {
-  return resultPage_(true, 'PickPath signup receiver is ready.',
-    PICKPATH.liveReturn, false);
+  return HtmlService.createHtmlOutput(
+    '<!doctype html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<title>PickPath signup receiver</title></head>' +
+    '<body style="font-family:system-ui,sans-serif;padding:40px">' +
+    '<h1>PickPath signup receiver is ready</h1>' +
+    '<p>This endpoint does not display subscriber information.</p>' +
+    '</body></html>'
+  );
 }
 
 /**

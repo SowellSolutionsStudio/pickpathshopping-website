@@ -4,7 +4,7 @@ This integration belongs to **Sowell Solutions LLC** and records voluntary marke
 
 ## Initial setup
 
-1. Open the private [PickPath signup Sheet](https://docs.google.com/spreadsheets/d/1PyV5MnJsxkt8jNvUxIeW_isxGGCO1LIyBeDx9RIJ1rM/edit).
+1. Open the private PickPath signup Google Sheet you already created.
 2. Select **Extensions → Apps Script**.
 3. Replace the editor's `Code.gs` contents with [Code.gs](./Code.gs) from this folder. Save.
 4. Select the function **setupPickPathSignups**, click **Run**, and approve the Google permissions. Confirm that two private tabs appeared: **Launch Signups** and **Consent Log**.
