@@ -677,3 +677,8 @@
   .journey-ready [data-journey-reveal] { opacity:1!important; transform:none!important; transition:none!important; }
   .journey-path-progress { stroke-dasharray:4 17; stroke-dashoffset:0!important; }
 }
+
+/* The route remains decorative: it is redrawn through the open illustration areas
+   and its SVG mask reserves clear space around each text block. */
+.journey-path { z-index: -1; }
+.journey-words { isolation: isolate; }

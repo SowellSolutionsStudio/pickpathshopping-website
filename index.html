@@ -9,8 +9,16 @@
     </div>
     <div class="journey-stage" id="journey-stage">
       <svg class="journey-path" viewBox="0 0 1200 1200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path class="journey-path-track" d="M925 35 C1115 205 460 185 326 420 S495 685 800 794 S1020 1075 790 1160"/>
-        <path class="journey-path-progress" d="M925 35 C1115 205 460 185 326 420 S495 685 800 794 S1020 1075 790 1160"/>
+        <defs>
+          <mask id="journey-copy-clearance-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="1200">
+            <rect width="1200" height="1200" fill="white"/>
+            <g class="journey-copy-clearance"></g>
+          </mask>
+        </defs>
+        <g mask="url(#journey-copy-clearance-mask)">
+          <path class="journey-path-track" d="M925 35 C1075 115 1080 212 800 285 C550 350 245 315 218 443 C175 570 265 700 385 746 C560 820 1025 720 1035 915 C1040 1020 930 1100 790 1160"/>
+          <path class="journey-path-progress" d="M925 35 C1075 115 1080 212 800 285 C550 350 245 315 218 443 C175 570 265 700 385 746 C560 820 1025 720 1035 915 C1040 1020 930 1100 790 1160"/>
+        </g>
       </svg>
       <article class="journey-stop journey-stop--list" data-journey-reveal>
         <div class="journey-words">
