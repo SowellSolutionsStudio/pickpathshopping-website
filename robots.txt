@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /
-# Preview only: remove Disallow when custom domain is live.
+Allow: /
+
+Sitemap: https://pickpathshopping.com/sitemap.xml
