@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Preview only: remove Disallow when custom domain is live.
