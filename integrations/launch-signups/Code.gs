@@ -156,7 +156,7 @@ function doPost(e) {
   } catch (error) {
     console.error('PickPath signup failed: ' + String(error));
     return resultPage_(false,
-      'We could not save your request. Please try again or email studio@sowellsolutions.com.',
+      'We could not save your request. Please try again or email info@pickpathshopping.com.',
       returnUrl, true);
   }
 }
