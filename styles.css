@@ -905,6 +905,7 @@
 }
 .data-story-stage {
   position:relative;
+  isolation:isolate;
   display:grid;
   grid-template-columns:minmax(260px,1.2fr) minmax(210px,.88fr) minmax(220px,.9fr);
   align-items:center;
