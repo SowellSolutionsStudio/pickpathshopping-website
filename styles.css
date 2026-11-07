@@ -1340,56 +1340,68 @@
 .launch-content h2 em {font-style:normal;color:var(--gold);}
 .launch-lead {color:#d1e9dc;font-size:clamp(1.09rem,1.42vw,1.47rem);max-width:760px;line-height:1.7;}
 .launch-availability {position:relative;margin-top:clamp(35px,4vw,65px);}
-.launch-ribbon {
-  display:inline-flex;
+/* Two intentionally equal-sized store-badge displays, never interactive before launch. */
+.launch-store-row {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(12px,1.3vw,23px);
   align-items:center;
-  min-height:54px;
-  border:2px dashed #fff6bd;
-  background:#ffba08;
-  color:#043e2b;
-  font:900 clamp(1.02rem,1.45vw,1.55rem) Outfit,sans-serif;
-  letter-spacing:.12em;
-  padding:8px 24px;
-  border-radius:11px;
-  transform:rotate(-3deg);
-  box-shadow:7px 8px 0 rgba(0,20,13,.2);
-  animation:launchStamp 6s ease-in-out infinite;
+  max-width:690px;
 }
-.launch-store-row {display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;margin-top:26px;}
 .launch-store {
-  flex:1 1 265px;
+  display:grid;
+  place-items:center;
+  position:relative;
+  width:100%;
   min-width:0;
-  max-width:320px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:flex-start;
-  gap:0;
-  cursor:not-allowed;
+  height:clamp(100px,8.4vw,126px);
+  border-radius:18px;
+  isolation:isolate;
   user-select:none;
+  cursor:default;
+  overflow:visible;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.10);
 }
 .launch-store img {
   display:block;
-  width:100%;
-  max-width:290px;
-  height:106px;
+  width:94%;
+  height:96%;
+  max-width:310px;
   object-fit:contain;
-  object-position:left center;
-  filter:saturate(.7);
-  opacity:.92;
+  object-position:center;
   pointer-events:none;
+  filter:saturate(.8) brightness(.86);
 }
-.launch-store-status {
-  border-radius:99px;
-  padding:6px 12px;
-  background:rgba(255,255,255,.12);
-  color:#d8f2e3;
-  font-weight:800;
-  font-size:.8rem;
-  letter-spacing:.02em;
+.launch-store--google img { transform:scale(1.05); }
+.launch-store--apple img { transform:scale(.93); }
+.launch-store-stamp {
+  position:absolute;
+  z-index:2;
+  top:50%;
+  left:50%;
+  display:grid;
+  place-items:center;
+  width:min(90%,260px);
+  min-height:clamp(44px,3.5vw,59px);
+  padding:7px 12px;
+  border:3px double rgba(255,255,255,.98);
+  outline:2px solid rgba(255,255,255,.9);
+  outline-offset:4px;
+  border-radius:7px;
+  color:#fff;
+  background:rgba(0,49,33,.26);
+  font:900 clamp(.91rem,1.27vw,1.5rem)/1 Outfit,system-ui,sans-serif;
+  white-space:nowrap;
+  text-align:center;
+  letter-spacing:.12em;
+  text-shadow:0 1px 1px rgba(0,34,20,.55);
+  box-shadow:0 3px 0 rgba(255,255,255,.23),0 12px 20px rgba(0,20,11,.22);
+  transform:translate(-50%,-50%) rotate(-9deg);
+  pointer-events:none;
+  /* A slightly uneven edge gives the white seal a printed-ink feel. */
+  clip-path:polygon(0 2%,14% 0,29% 1%,43% 0,58% 2%,75% 0,90% 2%,100% 0,99% 22%,100% 49%,99% 72%,100% 99%,80% 100%,65% 98%,45% 100%,23% 99%,0 100%,1% 79%,0 58%,1% 35%);
 }
-.launch-store-status span {color:var(--gold);font-size:.75em;margin-right:5px;}
-.launch-availability-note {margin:19px 0 0;color:#b9dfca;font-size:.85rem;line-height:1.5;}
 .launch-signup-card {
   color:#173c31;
   background:#fffefa;
@@ -1474,30 +1486,24 @@
   white-space:nowrap!important;
 }
 @keyframes launchGleam {from{transform:rotate(-20deg) scale(.9)}to{transform:rotate(25deg) scale(1.16)}}
-@keyframes launchStamp {0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-1deg) translateY(-5px)}}
 @media(max-width:1140px) {
   .launch-panel {grid-template-columns:minmax(0,1fr) minmax(340px,.92fr);gap:25px;}
   .launch-content h2 {font-size:clamp(2.8rem,4.6vw,5.1rem);}
-  .launch-store-row {gap:11px;}
-  .launch-store {flex-basis:200px;}
 }
 @media(max-width:900px) {
   .launch-panel {grid-template-columns:1fr;}
   .launch-content h2 {font-size:clamp(3.2rem,7vw,5.7rem);}
-  .launch-store-row {gap:23px;}
-  .launch-store {flex-basis:250px;}
   .launch-signup-card {max-width:760px;width:100%;}
 }
 @media(max-width:550px) {
   .launch-panel {padding:24px 18px;}
   .launch-content h2 {font-size:clamp(2.85rem,10vw,4.2rem);}
-  .launch-ribbon {font-size:1.1rem;}
-  .launch-store-row {gap:5px;}
-  .launch-store {flex-basis:220px;}
-  .launch-store img {height:90px;max-width:270px;}
+  .launch-store-row {grid-template-columns:1fr;gap:19px;}
+  .launch-store {max-width:360px;height:118px;}
+  .launch-store-stamp {font-size:1.16rem;min-height:54px;}
   .launch-signup-card {padding:25px 20px;}
   .launch-form-heading h3 {font-size:2.1rem;}
 }
 @media(prefers-reduced-motion:reduce) {
-  .launch-gleam,.launch-ribbon {animation:none!important;}
+  .launch-gleam {animation:none!important;}
 }
